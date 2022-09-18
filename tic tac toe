@@ -34,7 +34,7 @@ while game=='yes':
         for i in range (3):
             if board[i]==board[i+3]==board[i+6]:
                 status='win'
-        if step>=9:
+        if step>=9 and status=='none':
             status='lose'
     for i in range (0,9,3):
                     print(board[i],board[i+1],board[i+2])
