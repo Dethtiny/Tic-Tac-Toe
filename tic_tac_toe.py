@@ -5,6 +5,7 @@ step=0
 game='yes'
 x_score=0
 o_score=0
+
 def move (x):
     global board, step,player
     if x.lower()=='restart':
@@ -24,6 +25,7 @@ def move (x):
             print('Поле занято')
     else:
         print('Ошибка ввода')
+        
 def status_check():
     global status
     for i in range (0,9,3):
@@ -34,6 +36,7 @@ def status_check():
             status='win'
     if step>=9 and status=='none':
             status='lose'
+            
 def endgame():
     global player,o_score,x_score
     for i in range (0,9,3):
@@ -48,6 +51,7 @@ def endgame():
             player='X'
             x_score+=1
         print('!!!ИГРОК '+player+' ПОБЕДИЛ!!!','СУММА ОЧКОВ',f'ИГРОК X: {x_score}',f'ИГРОК O: {o_score}',sep='\n')
+        
 def replay():
     global game,status,board,player,step
     if player=='X':
@@ -56,6 +60,7 @@ def replay():
         player='X'
     while game not in ['yes','no']:
         game=input('Введите "yes" или "no"')
+        
 def main():
     global game,status,board,player,step
     while game=='yes':
@@ -72,5 +77,6 @@ def main():
         endgame()
         game = input('Вы хотите продолжить?').lower()
         replay()
+        
 main()
 print('!!!ИГРА ЗАВЕРЕШНА!!!')
